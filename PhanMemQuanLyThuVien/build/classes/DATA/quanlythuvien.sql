@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2022 at 10:46 AM
+-- Generation Time: Nov 08, 2022 at 10:56 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -112,9 +112,7 @@ CREATE TABLE `dausach` (
 CREATE TABLE `docgia` (
   `MaDocGia` varchar(255) NOT NULL,
   `TenDocGia` varchar(255) NOT NULL,
-  `GioiTinh` varchar(3) NOT NULL,
   `SoDienThoai` varchar(10) NOT NULL,
-  `NgaySinh` date NOT NULL,
   `NgayDangKy` date NOT NULL,
   `NgayGiaHan` date NOT NULL,
   `NgayHetHan` date NOT NULL,
@@ -142,7 +140,6 @@ CREATE TABLE `ngonngu` (
 CREATE TABLE `nhanvien` (
   `MaNhanVien` varchar(255) NOT NULL,
   `TenNhanVien` varchar(255) NOT NULL,
-  `GioiTinh` varchar(3) NOT NULL,
   `SoDienThoai` varchar(10) NOT NULL,
   `NgaySinh` date NOT NULL,
   `TrangThai` tinyint(1) NOT NULL

@@ -2,20 +2,21 @@ package DTO;
 
 import java.util.Date;
 
-public class DTO_NhanVien extends DTO_ConNguoi {
+public class DTO_NhanVien {
 
     private Boolean TrangThai;
     private Date NgaySinh;
-    private String MaNhanVien, SoDienThoai;
+    private String MaNhanVien, SoDienThoai, TenNhanVien;
 
     public DTO_NhanVien() {
     }
 
-    public DTO_NhanVien(Boolean TrangThai, Date NgaySinh, String MaNhanVien, String SoDienThoai) {
+    public DTO_NhanVien(Boolean TrangThai, Date NgaySinh, String MaNhanVien, String SoDienThoai, String TenNhanVien) {
         this.TrangThai = TrangThai;
         this.NgaySinh = NgaySinh;
         this.MaNhanVien = MaNhanVien;
         this.SoDienThoai = SoDienThoai;
+        this.TenNhanVien = TenNhanVien;
     }
 
     public Boolean getTrangThai() {
@@ -48,6 +49,14 @@ public class DTO_NhanVien extends DTO_ConNguoi {
 
     public void setSoDienThoai(String SoDienThoai) {
         this.SoDienThoai = SoDienThoai;
+    }
+
+    public String getTenNhanVien() {
+        return TenNhanVien;
+    }
+
+    public void setTenNhanVien(String TenNhanVien) {
+        this.TenNhanVien = TenNhanVien;
     }
 
 }
