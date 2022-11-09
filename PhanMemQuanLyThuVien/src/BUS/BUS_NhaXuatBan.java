@@ -6,24 +6,24 @@ import java.util.ArrayList;
 
 public class BUS_NhaXuatBan {
 
-    public Boolean Them(DTO_NhaXuatBan NhaXuatBan) {
-        return new DAO_NhaXuatBan().Them(NhaXuatBan);
-    }
-
     public Boolean CapNhat(DTO_NhaXuatBan NhaXuatBan) {
         return new DAO_NhaXuatBan().CapNhat(NhaXuatBan);
+    }
+
+    public Boolean Them(DTO_NhaXuatBan NhaXuatBan) {
+        return new DAO_NhaXuatBan().Them(NhaXuatBan);
     }
 
     public Boolean Xoa(DTO_NhaXuatBan NhaXuatBan) {
         return new DAO_NhaXuatBan().Xoa(NhaXuatBan);
     }
 
-    public static ArrayList<DTO_NhaXuatBan> LayDanhSach() {
-        return new DAO_NhaXuatBan().LayDanhSach();
+    public DTO_NhaXuatBan LayTenTheoMa(String MaNhaXuatBan) {
+        return new DAO_NhaXuatBan().LayTenTheoMa(MaNhaXuatBan);
     }
 
-    public static ArrayList<DTO_NhaXuatBan> TimKiemTheoMa(String MaNhaXuatBan) {
-        return new DAO_NhaXuatBan().TimKiemTheoMa(MaNhaXuatBan);
+    public static ArrayList<DTO_NhaXuatBan> LayDanhSach() {
+        return new DAO_NhaXuatBan().LayDanhSach();
     }
 
 }

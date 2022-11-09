@@ -1,38 +1,30 @@
 package DTO;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class DTO_PhieuMuon {
 
-    private Date ThoiGian;
-    private Integer SoLuong;
+    private Integer TongSach;
     private String MaDocGia, MaNhanVien, MaPhieuMuon;
+    private Timestamp ThoiGian;
 
     public DTO_PhieuMuon() {
     }
 
-    public DTO_PhieuMuon(Date ThoiGian, Integer SoLuong, String MaDocGia, String MaNhanVien, String MaPhieuMuon) {
-        this.ThoiGian = ThoiGian;
-        this.SoLuong = SoLuong;
+    public DTO_PhieuMuon(Integer TongSach, String MaDocGia, String MaNhanVien, String MaPhieuMuon, Timestamp ThoiGian) {
+        this.TongSach = TongSach;
         this.MaDocGia = MaDocGia;
         this.MaNhanVien = MaNhanVien;
         this.MaPhieuMuon = MaPhieuMuon;
-    }
-
-    public Date getThoiGian() {
-        return ThoiGian;
-    }
-
-    public void setThoiGian(Date ThoiGian) {
         this.ThoiGian = ThoiGian;
     }
 
-    public Integer getSoLuong() {
-        return SoLuong;
+    public Integer getTongSach() {
+        return TongSach;
     }
 
-    public void setSoLuong(Integer SoLuong) {
-        this.SoLuong = SoLuong;
+    public void setTongSach(Integer TongSach) {
+        this.TongSach = TongSach;
     }
 
     public String getMaDocGia() {
@@ -58,5 +50,16 @@ public class DTO_PhieuMuon {
     public void setMaPhieuMuon(String MaPhieuMuon) {
         this.MaPhieuMuon = MaPhieuMuon;
     }
+
+    public Timestamp getThoiGian() {
+        return ThoiGian;
+    }
+
+    public void setThoiGian(Timestamp ThoiGian) {
+        this.ThoiGian = ThoiGian;
+    }
+
+    
+   
 
 }

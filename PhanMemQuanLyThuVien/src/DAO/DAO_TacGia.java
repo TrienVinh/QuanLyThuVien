@@ -31,42 +31,6 @@ public class DAO_TacGia {
         return DanhSachTacGia;
     }
 
-    public ArrayList<DTO_TacGia> TimKiemTheoMa(String MaTacGia) {
-        ArrayList<DTO_TacGia> DanhSachTacGia = new ArrayList<>();
-        String TruyVan = "Select MaTacGia, TenTacGia From TacGia Where MaTacGia = '" + MaTacGia + "' And TrangThai = true";
-        try {
-            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
-            ResultSet = PreparedStatement.executeQuery();
-            while (ResultSet.next()) {
-                DTO_TacGia TacGia = new DTO_TacGia();
-                TacGia.setMaTacGia(ResultSet.getString("MaTacGia"));
-                TacGia.setTenTacGia(ResultSet.getString("TenTacGia"));
-                DanhSachTacGia.add(TacGia);
-            }
-            MySQLConnection MySQLConnection = new MySQLConnection();
-            MySQLConnection.Disconnect();
-        } catch (Exception Exception) {
-            JOptionPane.showMessageDialog(null, "Lấy danh sách tác giả không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-        }
-        return DanhSachTacGia;
-    }
-
-    public Boolean Them(DTO_TacGia TacGia) {
-        String TruyVan = "Insert Into TacGia(MaTacGia, TenTacGia,TrangThai) Values(?,?,?)";
-        try {
-            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
-            PreparedStatement.setString(1, TacGia.getMaTacGia());
-            PreparedStatement.setString(2, TacGia.getTenTacGia());
-            PreparedStatement.setBoolean(3, TacGia.getTrangThai());
-            MySQLConnection MySQLConnection = new MySQLConnection();
-            MySQLConnection.Disconnect();
-            return PreparedStatement.executeUpdate() > 0;
-        } catch (Exception Exception) {
-            JOptionPane.showMessageDialog(null, "Thêm tác giả mới không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-        }
-        return false;
-    }
-
     public Boolean CapNhat(DTO_TacGia TacGia) {
         String TruyVan = "Update TacGia Set TenTacGia = ? Where MaTacGia = ?";
         try {
@@ -76,6 +40,22 @@ public class DAO_TacGia {
             return PreparedStatement.executeUpdate() > 0;
         } catch (Exception Exception) {
             JOptionPane.showMessageDialog(null, "Cập nhật tác giả không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return false;
+    }
+
+    public Boolean Them(DTO_TacGia TacGia) {
+        String TruyVan = "Insert Into TacGia(MaTacGia, TenTacGia, TrangThai) Values(?,?,?)";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            PreparedStatement.setString(1, TacGia.getMaTacGia());
+            PreparedStatement.setString(2, TacGia.getTenTacGia());
+            PreparedStatement.setBoolean(3, TacGia.getTrangThai());
+            MySQLConnection MySQLConnection = new MySQLConnection();
+            MySQLConnection.Disconnect();
+            return PreparedStatement.executeUpdate() > 0;
+        } catch (Exception Exception) {
+            JOptionPane.showMessageDialog(null, "Thêm tác giả không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
         return false;
     }
@@ -91,6 +71,23 @@ public class DAO_TacGia {
             JOptionPane.showMessageDialog(null, "Xóa tác giả không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
         return false;
+    }
+
+    public DTO_TacGia LayTenTheoMa(String MaTacGia) {
+        DTO_TacGia TacGia = new DTO_TacGia();
+        String TruyVan = "Select TenTacGia From TacGia Where MaTacGia ='" + MaTacGia + "' And TrangThai = true";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            ResultSet = PreparedStatement.executeQuery();
+            while (ResultSet.next()) {
+                TacGia.setTenTacGia(ResultSet.getString("TenTacGia"));
+            }
+            MySQLConnection MySQLConnection = new MySQLConnection();
+            MySQLConnection.Disconnect();
+        } catch (Exception Exception) {
+            JOptionPane.showMessageDialog(null, "Lấy tên tác giả không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return TacGia;
     }
 
 }

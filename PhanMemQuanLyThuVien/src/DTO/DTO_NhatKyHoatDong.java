@@ -1,26 +1,18 @@
 package DTO;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class DTO_NhatKyHoatDong {
 
-    private Date ThoiGian;
     private String HoatDong, MaNhanVien;
+    private Timestamp ThoiGian;
 
     public DTO_NhatKyHoatDong() {
     }
 
-    public DTO_NhatKyHoatDong(Date ThoiGian, String HoatDong, String MaNhanVien) {
-        this.ThoiGian = ThoiGian;
+    public DTO_NhatKyHoatDong(String HoatDong, String MaNhanVien, Timestamp ThoiGian) {
         this.HoatDong = HoatDong;
         this.MaNhanVien = MaNhanVien;
-    }
-
-    public Date getThoiGian() {
-        return ThoiGian;
-    }
-
-    public void setThoiGian(Date ThoiGian) {
         this.ThoiGian = ThoiGian;
     }
 
@@ -38,6 +30,14 @@ public class DTO_NhatKyHoatDong {
 
     public void setMaNhanVien(String MaNhanVien) {
         this.MaNhanVien = MaNhanVien;
+    }
+
+    public Timestamp getThoiGian() {
+        return ThoiGian;
+    }
+
+    public void setThoiGian(Timestamp ThoiGian) {
+        this.ThoiGian = ThoiGian;
     }
 
 }
