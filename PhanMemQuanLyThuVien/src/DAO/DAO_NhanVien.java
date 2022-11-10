@@ -96,4 +96,21 @@ public class DAO_NhanVien {
         return NhanVien;
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        Integer ChieuDaiDanhSachNhanVien = 0;
+        String TruyVan = "Select MaNhanVien From NhanVien";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            ResultSet = PreparedStatement.executeQuery();
+            while (ResultSet.next()) {
+                ChieuDaiDanhSachNhanVien++;
+            }
+            MySQLConnection MySQLConnection = new MySQLConnection();
+            MySQLConnection.Disconnect();
+        } catch (Exception Exception) {
+            JOptionPane.showMessageDialog(null, "Lấy danh sách nhân viên không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return ChieuDaiDanhSachNhanVien;
+    }
+
 }

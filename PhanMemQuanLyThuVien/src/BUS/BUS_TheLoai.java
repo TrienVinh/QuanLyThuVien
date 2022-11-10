@@ -26,4 +26,8 @@ public class BUS_TheLoai {
         return new DAO_TheLoai().LayDanhSach();
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        return new DAO_TheLoai().LayChieuDaiDanhSach();
+    }
+
 }

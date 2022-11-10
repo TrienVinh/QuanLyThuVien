@@ -26,4 +26,8 @@ public class BUS_NhaXuatBan {
         return new DAO_NhaXuatBan().LayDanhSach();
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        return new DAO_NhaXuatBan().LayChieuDaiDanhSach();
+    }
+
 }

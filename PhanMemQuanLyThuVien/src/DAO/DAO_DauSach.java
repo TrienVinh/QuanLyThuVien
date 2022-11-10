@@ -13,7 +13,7 @@ public class DAO_DauSach {
 
     public ArrayList<DTO_DauSach> LayDanhSach() {
         ArrayList<DTO_DauSach> DanhSachDauSach = new ArrayList<>();
-        String TruyVan = "Select MaDauSach, TenDauSach, DonGia, MaDauSach, MaNhaXuatBan, MaTacGia, MaTheLoai, SoLuong From DauSach Where TrangThai = true";
+        String TruyVan = "Select MaDauSach, TenDauSach, DonGia, MaNgonNgu, MaNhaXuatBan, MaTacGia, MaTheLoai, SoLuong From DauSach Where TrangThai = true";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
             ResultSet = PreparedStatement.executeQuery();
@@ -22,7 +22,7 @@ public class DAO_DauSach {
                 DauSach.setMaDauSach(ResultSet.getString("MaDauSach"));
                 DauSach.setTenDauSach(ResultSet.getString("TenDauSach"));
                 DauSach.setDonGia(ResultSet.getDouble("DonGia"));
-                DauSach.setMaDauSach(ResultSet.getString("MaDauSach"));
+                DauSach.setMaNgonNgu(ResultSet.getString("MaNgonNgu"));
                 DauSach.setMaNhaXuatBan(ResultSet.getString("MaNhaXuatBan"));
                 DauSach.setMaTacGia(ResultSet.getString("MaTacGia"));
                 DauSach.setMaTheLoai(ResultSet.getString("MaTheLoai"));
@@ -38,11 +38,16 @@ public class DAO_DauSach {
     }
 
     public Boolean CapNhat(DTO_DauSach DauSach) {
-        String TruyVan = "Update DauSach Set TenDauSach = ?, DonGia = ?, MaDauSach = ?, MaNhaXuatBan = ?, MaTacGia = ?, MaTheLoai =?, SoLuong = ? Where MaDauSach = ?";
+        String TruyVan = "Update DauSach Set TenDauSach = ?, DonGia = ?, MaNgonNgu = ?, MaNhaXuatBan = ?, MaTacGia = ?, MaTheLoai =?, Where MaDauSach = ?";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
             PreparedStatement.setString(1, DauSach.getTenDauSach());
-            PreparedStatement.setString(4, DauSach.getMaDauSach());
+            PreparedStatement.setDouble(2, DauSach.getDonGia());
+            PreparedStatement.setString(3, DauSach.getMaNgonNgu());
+            PreparedStatement.setString(4, DauSach.getMaNhaXuatBan());
+            PreparedStatement.setString(5, DauSach.getMaTacGia());
+            PreparedStatement.setString(6, DauSach.getMaTheLoai());
+            PreparedStatement.setString(7, DauSach.getMaDauSach());
             return PreparedStatement.executeUpdate() > 0;
         } catch (Exception Exception) {
             JOptionPane.showMessageDialog(null, "Cập nhật đầu sách không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
@@ -51,12 +56,18 @@ public class DAO_DauSach {
     }
 
     public Boolean Them(DTO_DauSach DauSach) {
-        String TruyVan = "Insert Into DauSach(MaDauSach, TenDauSach, DonGia, MaDauSach, TrangThai) Values(?,?,?,?,?,?,?)";
+        String TruyVan = "Insert Into DauSach(MaDauSach, TenDauSach, DonGia, MaNgonNgu, MaNhaXuatBan, MaTacGia, MaTheLoai, SoLuong, TrangThai) Values(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
             PreparedStatement.setString(1, DauSach.getMaDauSach());
             PreparedStatement.setString(2, DauSach.getTenDauSach());
-            PreparedStatement.setBoolean(5, DauSach.getTrangThai());
+            PreparedStatement.setDouble(3, DauSach.getDonGia());
+            PreparedStatement.setString(4, DauSach.getMaNgonNgu());
+            PreparedStatement.setString(5, DauSach.getMaNhaXuatBan());
+            PreparedStatement.setString(6, DauSach.getMaTacGia());
+            PreparedStatement.setString(7, DauSach.getMaTheLoai());
+            PreparedStatement.setInt(8, DauSach.getSoLuong());
+            PreparedStatement.setBoolean(9, DauSach.getTrangThai());
             MySQLConnection MySQLConnection = new MySQLConnection();
             MySQLConnection.Disconnect();
             return PreparedStatement.executeUpdate() > 0;
@@ -95,7 +106,7 @@ public class DAO_DauSach {
         }
         return DauSach;
     }
-    
+
     public Integer LayChieuDaiDanhSach() {
         Integer ChieuDaiDanhSachDauSach = 0;
         String TruyVan = "Select MaDauSach From DauSach";

@@ -113,4 +113,21 @@ public class DAO_DocGia {
         return DocGia;
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        Integer ChieuDaiDanhSachDocGia = 0;
+        String TruyVan = "Select MaDocGia From DocGia";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            ResultSet = PreparedStatement.executeQuery();
+            while (ResultSet.next()) {
+                ChieuDaiDanhSachDocGia++;
+            }
+            MySQLConnection MySQLConnection = new MySQLConnection();
+            MySQLConnection.Disconnect();
+        } catch (Exception Exception) {
+            JOptionPane.showMessageDialog(null, "Lấy danh sách độc giả không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return ChieuDaiDanhSachDocGia;
+    }
+
 }

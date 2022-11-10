@@ -26,4 +26,8 @@ public class BUS_NhanVien {
         return new DAO_NhanVien().LayDanhSach();
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        return new DAO_NhanVien().LayChieuDaiDanhSach();
+    }
+
 }

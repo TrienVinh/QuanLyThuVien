@@ -26,4 +26,8 @@ public class BUS_TacGia {
         return new DAO_TacGia().LayDanhSach();
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        return new DAO_TacGia().LayChieuDaiDanhSach();
+    }
+
 }

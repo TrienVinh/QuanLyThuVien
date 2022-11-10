@@ -1,38 +1,30 @@
 package DTO;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class DTO_PhieuTra {
 
-    private Date ThoiGian;
-    private Integer SoLuong;
+    private Integer TongSach;
     private String MaNhanVien, MaPhieuMuon, MaPhieuTra;
+    private Timestamp ThoiGian;
 
     public DTO_PhieuTra() {
     }
 
-    public DTO_PhieuTra(Date ThoiGian, Integer SoLuong, String MaNhanVien, String MaPhieuMuon, String MaPhieuTra) {
-        this.ThoiGian = ThoiGian;
-        this.SoLuong = SoLuong;
+    public DTO_PhieuTra(Integer TongSach, String MaNhanVien, String MaPhieuMuon, String MaPhieuTra, Timestamp ThoiGian) {
+        this.TongSach = TongSach;
         this.MaNhanVien = MaNhanVien;
         this.MaPhieuMuon = MaPhieuMuon;
         this.MaPhieuTra = MaPhieuTra;
-    }
-
-    public Date getThoiGian() {
-        return ThoiGian;
-    }
-
-    public void setThoiGian(Date ThoiGian) {
         this.ThoiGian = ThoiGian;
     }
 
-    public Integer getSoLuong() {
-        return SoLuong;
+    public Integer getTongSach() {
+        return TongSach;
     }
 
-    public void setSoLuong(Integer SoLuong) {
-        this.SoLuong = SoLuong;
+    public void setTongSach(Integer TongSach) {
+        this.TongSach = TongSach;
     }
 
     public String getMaNhanVien() {
@@ -57,6 +49,14 @@ public class DTO_PhieuTra {
 
     public void setMaPhieuTra(String MaPhieuTra) {
         this.MaPhieuTra = MaPhieuTra;
+    }
+
+    public Timestamp getThoiGian() {
+        return ThoiGian;
+    }
+
+    public void setThoiGian(Timestamp ThoiGian) {
+        this.ThoiGian = ThoiGian;
     }
 
 }

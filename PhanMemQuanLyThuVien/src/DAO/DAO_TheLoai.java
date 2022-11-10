@@ -72,7 +72,7 @@ public class DAO_TheLoai {
         }
         return false;
     }
-    
+
     public DTO_TheLoai LayTenTheoMa(String MaTheLoai) {
         DTO_TheLoai TheLoai = new DTO_TheLoai();
         String TruyVan = "Select TenTheLoai From TheLoai Where MaTheLoai ='" + MaTheLoai + "' And TrangThai = true";
@@ -88,6 +88,23 @@ public class DAO_TheLoai {
             JOptionPane.showMessageDialog(null, "Lấy tên thể loại không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
         return TheLoai;
+    }
+
+    public Integer LayChieuDaiDanhSach() {
+        Integer ChieuDaiDanhSachTheLoai = 0;
+        String TruyVan = "Select MaTheLoai From TheLoai";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            ResultSet = PreparedStatement.executeQuery();
+            while (ResultSet.next()) {
+                ChieuDaiDanhSachTheLoai++;
+            }
+            MySQLConnection MySQLConnection = new MySQLConnection();
+            MySQLConnection.Disconnect();
+        } catch (Exception Exception) {
+            JOptionPane.showMessageDialog(null, "Lấy danh sách thể loại không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return ChieuDaiDanhSachTheLoai;
     }
 
 }

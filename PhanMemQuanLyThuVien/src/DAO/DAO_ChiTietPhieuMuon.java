@@ -1,7 +1,6 @@
 package DAO;
 
 import DTO.DTO_ChiTietPhieuMuon;
-import DTO.DTO_ChiTietPhieuMuon;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class DAO_ChiTietPhieuMuon {
 
     public ArrayList<DTO_ChiTietPhieuMuon> LayDanhSachTheoMa(String MaPhieuMuon) {
         ArrayList<DTO_ChiTietPhieuMuon> DanhSachChiTietPhieuMuon = new ArrayList<>();
-        String TruyVan = "Select MaPhieuMuon, MaDauSach, SoLuong From ChiTietPhieuMuon Where MaPhieuMuon ='" + MaPhieuMuon + "'";
+        String TruyVan = "Select * From ChiTietPhieuMuon Where MaPhieuMuon ='" + MaPhieuMuon + "'";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
             ResultSet = PreparedStatement.executeQuery();

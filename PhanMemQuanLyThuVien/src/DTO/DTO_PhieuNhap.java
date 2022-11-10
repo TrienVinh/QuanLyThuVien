@@ -1,29 +1,21 @@
 package DTO;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class DTO_PhieuNhap {
 
-    private Date ThoiGian;
     private Double TongTien;
     private String MaNhaXuatBan, MaNhanVien, MaPhieuNhap;
+    private Timestamp ThoiGian;
 
     public DTO_PhieuNhap() {
     }
 
-    public DTO_PhieuNhap(Date ThoiGian, Double TongTien, String MaNhaXuatBan, String MaNhanVien, String MaPhieuNhap) {
-        this.ThoiGian = ThoiGian;
+    public DTO_PhieuNhap(Double TongTien, String MaNhaXuatBan, String MaNhanVien, String MaPhieuNhap, Timestamp ThoiGian) {
         this.TongTien = TongTien;
         this.MaNhaXuatBan = MaNhaXuatBan;
         this.MaNhanVien = MaNhanVien;
         this.MaPhieuNhap = MaPhieuNhap;
-    }
-
-    public Date getThoiGian() {
-        return ThoiGian;
-    }
-
-    public void setThoiGian(Date ThoiGian) {
         this.ThoiGian = ThoiGian;
     }
 
@@ -57,6 +49,14 @@ public class DTO_PhieuNhap {
 
     public void setMaPhieuNhap(String MaPhieuNhap) {
         this.MaPhieuNhap = MaPhieuNhap;
+    }
+
+    public Timestamp getThoiGian() {
+        return ThoiGian;
+    }
+
+    public void setThoiGian(Timestamp ThoiGian) {
+        this.ThoiGian = ThoiGian;
     }
 
 }

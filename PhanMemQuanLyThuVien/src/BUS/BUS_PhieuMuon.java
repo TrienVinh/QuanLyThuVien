@@ -14,4 +14,8 @@ public class BUS_PhieuMuon {
         return new DAO_PhieuMuon().LayDanhSach();
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        return new DAO_PhieuMuon().LayChieuDaiDanhSach();
+    }
+
 }

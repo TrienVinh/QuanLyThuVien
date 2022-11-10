@@ -6,7 +6,6 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Random;
@@ -78,6 +77,12 @@ public class UTIL_ThaoTac {
         Ngay = NgayThangNam.getNgay();
         Thang = NgayThangNam.getThang();
         return String.valueOf(Nam) + "-" + String.valueOf(Thang) + "-" + String.valueOf(Ngay);
+    }
+
+    public String MaHoaMatKhau(String MatKhauTruocKhiMaHoa) {
+        Integer MatKhauSauKhiMaHoa = MatKhauTruocKhiMaHoa.hashCode();
+        String MatKhauDangString = String.valueOf(MatKhauSauKhiMaHoa);
+        return MatKhauDangString;
     }
 
     public String TaoMaDauSach(Integer ChieuDaiDanhSachDauSach) {

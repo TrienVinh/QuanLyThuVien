@@ -52,4 +52,21 @@ public class DAO_PhieuMuon {
         return false;
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        Integer ChieuDaiDanhSachPhieuMuon = 0;
+        String TruyVan = "Select MaPhieuMuon From PhieuMuon";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            ResultSet = PreparedStatement.executeQuery();
+            while (ResultSet.next()) {
+                ChieuDaiDanhSachPhieuMuon++;
+            }
+            MySQLConnection MySQLConnection = new MySQLConnection();
+            MySQLConnection.Disconnect();
+        } catch (Exception Exception) {
+            JOptionPane.showMessageDialog(null, "Lấy danh sách phiếu mượn không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return ChieuDaiDanhSachPhieuMuon;
+    }
+
 }

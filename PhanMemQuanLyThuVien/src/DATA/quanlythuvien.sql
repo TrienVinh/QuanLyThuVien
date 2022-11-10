@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2022 at 10:56 AM
+-- Generation Time: Nov 10, 2022 at 10:48 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -119,6 +119,13 @@ CREATE TABLE `docgia` (
   `TrangThai` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `docgia`
+--
+
+INSERT INTO `docgia` (`MaDocGia`, `TenDocGia`, `SoDienThoai`, `NgayDangKy`, `NgayGiaHan`, `NgayHetHan`, `TrangThai`) VALUES
+('DG01', 'Huyền', '0353631949', '2022-11-09', '2022-11-09', '2022-12-09', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -145,6 +152,13 @@ CREATE TABLE `nhanvien` (
   `TrangThai` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `nhanvien`
+--
+
+INSERT INTO `nhanvien` (`MaNhanVien`, `TenNhanVien`, `SoDienThoai`, `NgaySinh`, `TrangThai`) VALUES
+('NV01', 'Lư Triển Vinh', '0353631949', '2000-08-09', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -156,6 +170,14 @@ CREATE TABLE `nhatkyhoatdong` (
   `HoatDong` varchar(1023) NOT NULL,
   `ThoiGian` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `nhatkyhoatdong`
+--
+
+INSERT INTO `nhatkyhoatdong` (`MaNhanVien`, `HoatDong`, `ThoiGian`) VALUES
+('NV01', 'Nhân viên \'NV01\' đăng nhập vào hệ thống', '2022-11-10 16:12:35'),
+('NV01', 'Nhân viên \'NV01\' đăng nhập vào hệ thống', '2022-11-10 16:25:35');
 
 -- --------------------------------------------------------
 
@@ -251,6 +273,13 @@ CREATE TABLE `taikhoan` (
   `TrangThai` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`MaNhanVien`, `MatKhau`, `PhanQuyen`, `TinhTrang`, `TrangThai`) VALUES
+('NV01', '-1768893937', 'Quản trị viên', 'Khả dụng', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -310,7 +339,6 @@ ALTER TABLE `chitietphieutra`
 --
 ALTER TABLE `dausach`
   ADD PRIMARY KEY (`MaDauSach`),
-  ADD UNIQUE KEY `TenDauSach` (`TenDauSach`),
   ADD KEY `MaNgonNgu` (`MaNgonNgu`),
   ADD KEY `MaNhaXuatBan` (`MaNhaXuatBan`),
   ADD KEY `MaTacGia` (`MaTacGia`),
@@ -320,7 +348,8 @@ ALTER TABLE `dausach`
 -- Indexes for table `docgia`
 --
 ALTER TABLE `docgia`
-  ADD PRIMARY KEY (`MaDocGia`);
+  ADD PRIMARY KEY (`MaDocGia`),
+  ADD UNIQUE KEY `SoDienThoai` (`SoDienThoai`);
 
 --
 -- Indexes for table `ngonngu`

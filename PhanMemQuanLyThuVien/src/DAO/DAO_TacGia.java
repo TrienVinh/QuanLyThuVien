@@ -90,4 +90,21 @@ public class DAO_TacGia {
         return TacGia;
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        Integer ChieuDaiDanhSachTacGia = 0;
+        String TruyVan = "Select MaTacGia From TacGia";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            ResultSet = PreparedStatement.executeQuery();
+            while (ResultSet.next()) {
+                ChieuDaiDanhSachTacGia++;
+            }
+            MySQLConnection MySQLConnection = new MySQLConnection();
+            MySQLConnection.Disconnect();
+        } catch (Exception Exception) {
+            JOptionPane.showMessageDialog(null, "Lấy danh sách tác giả không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return ChieuDaiDanhSachTacGia;
+    }
+
 }

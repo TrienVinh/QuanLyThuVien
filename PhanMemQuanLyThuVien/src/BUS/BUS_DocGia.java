@@ -25,9 +25,13 @@ public class BUS_DocGia {
     public DTO_DocGia LayTenTheoMa(String MaDocGia) {
         return new DAO_DocGia().LayTenTheoMa(MaDocGia);
     }
-    
+
     public static ArrayList<DTO_DocGia> LayDanhSach() {
         return new DAO_DocGia().LayDanhSach();
+    }
+
+    public Integer LayChieuDaiDanhSach() {
+        return new DAO_DocGia().LayChieuDaiDanhSach();
     }
 
 }

@@ -1,13 +1,12 @@
 package GUI;
 
-public class GUI_TrangChuNhanVien extends javax.swing.JFrame {
+public class GUI_QuanLyNgonNgu extends javax.swing.JFrame {
 
-    public GUI_TrangChuNhanVien() {
+    public GUI_QuanLyNgonNgu() {
         initComponents();
     }
 
     @SuppressWarnings("unchecked")
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

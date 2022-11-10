@@ -90,4 +90,21 @@ public class DAO_NhaXuatBan {
         return NhaXuatBan;
     }
 
+    public Integer LayChieuDaiDanhSach() {
+        Integer ChieuDaiDanhSachNhaXuatBan = 0;
+        String TruyVan = "Select MaNhaXuatBan From NhaXuatBan";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            ResultSet = PreparedStatement.executeQuery();
+            while (ResultSet.next()) {
+                ChieuDaiDanhSachNhaXuatBan++;
+            }
+            MySQLConnection MySQLConnection = new MySQLConnection();
+            MySQLConnection.Disconnect();
+        } catch (Exception Exception) {
+            JOptionPane.showMessageDialog(null, "Lấy danh sách nhà xuất bản không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return ChieuDaiDanhSachNhaXuatBan;
+    }
+
 }

@@ -1,8 +1,8 @@
 package GUI;
 
-public class GUI_TrangChuQuanTriVien extends javax.swing.JFrame {
+public class GUI_QuanLyNhanVien extends javax.swing.JFrame {
 
-    public GUI_TrangChuQuanTriVien() {
+    public GUI_QuanLyNhanVien() {
         initComponents();
     }
 
