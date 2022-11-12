@@ -2,7 +2,7 @@ package DTO;
 
 public class DTO_DauSach {
 
-    private Boolean KhaDung;
+    private Boolean TonTai;
     private Double DonGia;
     private Integer SoLuongSach, SoLuongSachKhaDung;
     private String MaDauSach, MaNgonNgu, MaNhaXuatBan, MaTacGia, MaTheLoai, TenDauSach;
@@ -10,8 +10,8 @@ public class DTO_DauSach {
     public DTO_DauSach() {
     }
 
-    public DTO_DauSach(Boolean KhaDung, Double DonGia, Integer SoLuongSach, Integer SoLuongSachKhaDung, String MaDauSach, String MaNgonNgu, String MaNhaXuatBan, String MaTacGia, String MaTheLoai, String TenDauSach) {
-        this.KhaDung = KhaDung;
+    public DTO_DauSach(Boolean TonTai, Double DonGia, Integer SoLuongSach, Integer SoLuongSachKhaDung, String MaDauSach, String MaNgonNgu, String MaNhaXuatBan, String MaTacGia, String MaTheLoai, String TenDauSach) {
+        this.TonTai = TonTai;
         this.DonGia = DonGia;
         this.SoLuongSach = SoLuongSach;
         this.SoLuongSachKhaDung = SoLuongSachKhaDung;
@@ -23,12 +23,12 @@ public class DTO_DauSach {
         this.TenDauSach = TenDauSach;
     }
 
-    public Boolean getKhaDung() {
-        return KhaDung;
+    public Boolean getTonTai() {
+        return TonTai;
     }
 
-    public void setKhaDung(Boolean KhaDung) {
-        this.KhaDung = KhaDung;
+    public void setTonTai(Boolean TonTai) {
+        this.TonTai = TonTai;
     }
 
     public Double getDonGia() {
