@@ -2,7 +2,10 @@ package DTO;
 
 public class DTO_TacGia {
 
+    //Tồn tại (đã bị xóa hay chưa)
     private Boolean TonTai;
+    
+    //Mã tác giả, tên tác giả
     private String MaTacGia, TenTacGia;
 
     public DTO_TacGia() {

@@ -21,12 +21,15 @@ public class GUI_DangNhap extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÝ THƯ VIỆN");
+        setResizable(false);
 
         JLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/ICONS/IMG_ICON_KeSach.png"))); // NOI18N
+        JLabel_Logo.setAlignmentX(0.5F);
 
         JLabel_DangNhap.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         JLabel_DangNhap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_DangNhap.setText("ĐĂNG NHẬP");
+        JLabel_DangNhap.setAlignmentX(0.5F);
         JLabel_DangNhap.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         JLabel_DangNhap.setMaximumSize(new java.awt.Dimension(200, 30));
         JLabel_DangNhap.setMinimumSize(new java.awt.Dimension(200, 30));
@@ -34,6 +37,7 @@ public class GUI_DangNhap extends javax.swing.JFrame {
 
         JLabel_MaNhanVien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLabel_MaNhanVien.setText("Mã nhân viên");
+        JLabel_MaNhanVien.setAlignmentX(0.5F);
         JLabel_MaNhanVien.setMaximumSize(new java.awt.Dimension(150, 30));
         JLabel_MaNhanVien.setMinimumSize(new java.awt.Dimension(150, 30));
         JLabel_MaNhanVien.setPreferredSize(new java.awt.Dimension(150, 30));
@@ -46,6 +50,7 @@ public class GUI_DangNhap extends javax.swing.JFrame {
 
         JLabel_MatKhau.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLabel_MatKhau.setText("Mật khẩu");
+        JLabel_MatKhau.setAlignmentX(0.5F);
         JLabel_MatKhau.setMaximumSize(new java.awt.Dimension(150, 30));
         JLabel_MatKhau.setMinimumSize(new java.awt.Dimension(150, 30));
         JLabel_MatKhau.setPreferredSize(new java.awt.Dimension(150, 30));
@@ -53,6 +58,7 @@ public class GUI_DangNhap extends javax.swing.JFrame {
         JButton_DangNhap.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_DangNhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/ICONS/IMG_ICON_DangNhap.png"))); // NOI18N
         JButton_DangNhap.setText("Đăng nhập");
+        JButton_DangNhap.setAlignmentX(0.5F);
         JButton_DangNhap.setMaximumSize(new java.awt.Dimension(150, 30));
         JButton_DangNhap.setMinimumSize(new java.awt.Dimension(150, 30));
         JButton_DangNhap.setPreferredSize(new java.awt.Dimension(150, 30));
@@ -60,6 +66,7 @@ public class GUI_DangNhap extends javax.swing.JFrame {
         JButton_Thoat.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Thoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/ICONS/IMG_ICON_Thoat.png"))); // NOI18N
         JButton_Thoat.setText("Thoát");
+        JButton_Thoat.setAlignmentX(0.5F);
         JButton_Thoat.setMaximumSize(new java.awt.Dimension(150, 30));
         JButton_Thoat.setMinimumSize(new java.awt.Dimension(150, 30));
         JButton_Thoat.setPreferredSize(new java.awt.Dimension(150, 30));
@@ -73,28 +80,23 @@ public class GUI_DangNhap extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(250, 250, 250)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(175, 175, 175)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(JLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLabel_DangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(250, 250, 250))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLabel_DangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLabel_MaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLabel_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JLabel_MaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JTextField_MaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JPasswordField_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JTextField_MaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
                         .addComponent(JButton_DangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
-                        .addComponent(JButton_Thoat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JButton_Thoat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JLabel_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(JPasswordField_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(175, 175, 175))
         );
         layout.setVerticalGroup(

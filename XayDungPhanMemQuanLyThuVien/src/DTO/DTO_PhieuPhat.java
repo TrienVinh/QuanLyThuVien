@@ -4,8 +4,13 @@ import java.sql.Timestamp;
 
 public class DTO_PhieuPhat {
 
+    //Tổng tiền
     private Double TongTien;
+    
+    //Mã nhân viên, mã phiếu mượn, mã phiếu phạt
     private String MaNhanVien, MaPhieuMuon, MaPhieuPhat;
+    
+    //Thời gian
     private Timestamp ThoiGian;
 
     public DTO_PhieuPhat() {

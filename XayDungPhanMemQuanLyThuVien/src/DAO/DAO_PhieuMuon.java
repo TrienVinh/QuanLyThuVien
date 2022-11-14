@@ -13,6 +13,7 @@ public class DAO_PhieuMuon {
     private ResultSet ResultSet = null;
     private PreparedStatement PreparedStatement = null;
 
+    //Lấy danh sách phiếu mượn
     public ArrayList<DTO_PhieuMuon> LayDanhSach() {
         ArrayList<DTO_PhieuMuon> DanhSachPhieuMuon = new ArrayList<>();
         String TruyVan = "Select MaPhieuMuon, MaDocGia, MaNhanVien, ThoiGian, TongSach From PhieuMuon";
@@ -35,6 +36,7 @@ public class DAO_PhieuMuon {
         return DanhSachPhieuMuon;
     }
 
+    //Thêm phiếu mượn
     public Boolean Them(DTO_PhieuMuon PhieuMuon) {
         String TruyVan = "Insert Into PhieuMuon(MaPhieuMuon, MaDocGia, MaNhanVien, ThoiGian, TongSach) Values(?,?,?,?,?)";
         try {
@@ -52,6 +54,7 @@ public class DAO_PhieuMuon {
         return false;
     }
 
+    //Lấy chiều dài danh sách phiếu mượn
     public Integer LayChieuDaiDanhSach() {
         Integer ChieuDaiDanhSachPhieuMuon = 0;
         String TruyVan = "Select MaPhieuMuon From PhieuMuon";

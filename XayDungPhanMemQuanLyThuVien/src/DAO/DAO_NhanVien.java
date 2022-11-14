@@ -13,6 +13,7 @@ public class DAO_NhanVien {
     private PreparedStatement PreparedStatement = null;
     private ResultSet ResultSet = null;
 
+    //Lấy danh sách nhân viên
     public ArrayList<DTO_NhanVien> LayDanhSach() {
         ArrayList<DTO_NhanVien> DanhSachNhanVien = new ArrayList<>();
         String TruyVan = "Select MaNhanVien, TenNhanVien, SoDienThoai, NgayDangKy From NhanVien Where TonTai = true";
@@ -34,13 +35,15 @@ public class DAO_NhanVien {
         return DanhSachNhanVien;
     }
 
+    //Cập nhật thông tin nhân viên
     public Boolean CapNhat(DTO_NhanVien NhanVien) {
-        String TruyVan = "Update NhanVien Set TenNhanVien = ?, SoDienThoai = ? Where MaNhanVien = ?";
+        String TruyVan = "Update NhanVien Set TenNhanVien = ?, SoDienThoai = ?, NgaySinh = ? Where MaNhanVien = ?";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
             PreparedStatement.setString(1, NhanVien.getTenNhanVien());
             PreparedStatement.setString(2, NhanVien.getSoDienThoai());
-            PreparedStatement.setString(3, NhanVien.getMaNhanVien());
+            PreparedStatement.setDate(3, NhanVien.getNgaySinh());
+            PreparedStatement.setString(4, NhanVien.getMaNhanVien());
             MySQLConnection.Disconnect();
             return PreparedStatement.executeUpdate() > 0;
         } catch (SQLException SQLException) {
@@ -49,6 +52,7 @@ public class DAO_NhanVien {
         return false;
     }
 
+    //Thêm nhân viên
     public Boolean Them(DTO_NhanVien NhanVien) {
         String TruyVan = "Insert Into NhanVien(MaNhanVien, TenNhanVien, SoDienThoai, NgaySinh, TonTai) Values(?,?,?,?,?,?,?)";
         try {
@@ -66,6 +70,7 @@ public class DAO_NhanVien {
         return false;
     }
 
+    //Xóa nhân viên
     public Boolean Xoa(DTO_NhanVien NhanVien) {
         String TruyVan = "Update NhanVien Set TonTai = ? Where MaNhanVien = ?";
         try {
@@ -79,7 +84,25 @@ public class DAO_NhanVien {
         }
         return false;
     }
-    
+
+    //Lấy ngày sinh nhân viên theo mã
+    public DTO_NhanVien LayNgaySinhTheoMa(String MaNhanVien) {
+        DTO_NhanVien NhanVien = new DTO_NhanVien();
+        String TruyVan = "Select NgaySinh From NhanVien Where MaNhanVien ='" + MaNhanVien + "'";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            ResultSet = PreparedStatement.executeQuery();
+            while (ResultSet.next()) {
+                NhanVien.setTenNhanVien(ResultSet.getString("NgaySinh"));
+            }
+            MySQLConnection.Disconnect();
+        } catch (SQLException SQLException) {
+            JOptionPane.showMessageDialog(null, "Lấy ngày sinh nhân viên không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return NhanVien;
+    }
+
+    //Lấy tên nhân viên theo mã
     public DTO_NhanVien LayTenTheoMa(String MaNhanVien) {
         DTO_NhanVien NhanVien = new DTO_NhanVien();
         String TruyVan = "Select TenNhanVien, TonTai From NhanVien Where MaNhanVien ='" + MaNhanVien + "'";
@@ -97,6 +120,7 @@ public class DAO_NhanVien {
         return NhanVien;
     }
 
+    //Lấy chiều dài danh sách nhân viên
     public Integer LayChieuDaiDanhSach() {
         Integer ChieuDaiDanhSachNhanVien = 0;
         String TruyVan = "Select MaNhanVien From NhanVien";

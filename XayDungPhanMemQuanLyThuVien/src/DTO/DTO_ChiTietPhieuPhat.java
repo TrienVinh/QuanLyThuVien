@@ -2,7 +2,10 @@ package DTO;
 
 public class DTO_ChiTietPhieuPhat {
 
+    //Lệ phí bồi thường
     private Double LePhiBoiThuong;
+    
+    //Mã đầu sách, mã phiếu phạt, mã sách, nội dung phạt
     private String MaDauSach, MaPhieuPhat, MaSach, NoiDungPhat;
 
     public DTO_ChiTietPhieuPhat() {

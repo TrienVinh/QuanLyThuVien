@@ -2,7 +2,10 @@ package DTO;
 
 public class DTO_ChiTietPhieuMuon {
 
+    //Số lượng sách
     private Integer SoLuongSach;
+    
+    //Mã đầu sách, mã phiếu mượn
     private String MaDauSach, MaPhieuMuon;
 
     public DTO_ChiTietPhieuMuon() {

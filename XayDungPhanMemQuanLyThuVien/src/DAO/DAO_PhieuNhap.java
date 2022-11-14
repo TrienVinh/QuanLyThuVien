@@ -13,6 +13,7 @@ public class DAO_PhieuNhap {
     private ResultSet ResultSet = null;
     private PreparedStatement PreparedStatement = null;
 
+    //Lấy danh sách phiếu nhập
     public ArrayList<DTO_PhieuNhap> LayDanhSach() {
         ArrayList<DTO_PhieuNhap> DanhSachPhieuNhap = new ArrayList<>();
         String TruyVan = "Select MaPhieuNhap, MaNhaXuatBan, MaNhanVien, ThoiGian, TongTien From PhieuNhap";
@@ -30,13 +31,14 @@ public class DAO_PhieuNhap {
             }
             MySQLConnection.Disconnect();
         } catch (SQLException SQLException) {
-            JOptionPane.showMessageDialog(null, "Lấy danh sách phiếu mượn không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Lấy danh sách phiếu nhập không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
         return DanhSachPhieuNhap;
     }
 
+    //Thêm phiếu nhập
     public Boolean Them(DTO_PhieuNhap PhieuNhap) {
-        String TruyVan = "Insert Doubleo PhieuNhap(MaPhieuNhap, MaNhaXuatBan, MaNhanVien, ThoiGian, TongTien) Values(?,?,?,?,?)";
+        String TruyVan = "Insert PhieuNhap(MaPhieuNhap, MaNhaXuatBan, MaNhanVien, ThoiGian, TongTien) Values(?,?,?,?,?)";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
             PreparedStatement.setString(1, PhieuNhap.getMaPhieuNhap());
@@ -47,13 +49,14 @@ public class DAO_PhieuNhap {
             MySQLConnection.Disconnect();
             return PreparedStatement.executeUpdate() > 0;
         } catch (SQLException SQLException) {
-            JOptionPane.showMessageDialog(null, "Thêm phiếu mượn không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Thêm phiếu nhập không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
         return false;
     }
 
+    //Lấy chiều dài danh sách phiếu nhập
     public Integer LayChieuDaiDanhSach() {
-         Integer ChieuDaiDanhSachPhieuNhap = 0;
+        Integer ChieuDaiDanhSachPhieuNhap = 0;
         String TruyVan = "Select MaPhieuNhap From PhieuNhap";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
@@ -63,7 +66,7 @@ public class DAO_PhieuNhap {
             }
             MySQLConnection.Disconnect();
         } catch (SQLException SQLException) {
-            JOptionPane.showMessageDialog(null, "Lấy chiều dài danh sách phiếu mượn không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Lấy chiều dài danh sách phiếu nhập không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
         return ChieuDaiDanhSachPhieuNhap;
     }

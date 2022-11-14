@@ -2,9 +2,16 @@ package DTO;
 
 public class DTO_DauSach {
 
+    //Tồn tại (đã bị xóa hay chưa)
     private Boolean TonTai;
+    
+    //Đơn giá
     private Double DonGia;
+    
+    //Số lượng sách, số lượng sách khả dụng (số lượng sách còn nguyên vẹn)
     private Integer SoLuongSach, SoLuongSachKhaDung;
+    
+    //Mã đầu sách, mã ngôn ngữ, mã nhà xuất bản, mã tác giả, mã thể loại, tên đầu sách
     private String MaDauSach, MaNgonNgu, MaNhaXuatBan, MaTacGia, MaTheLoai, TenDauSach;
 
     public DTO_DauSach() {

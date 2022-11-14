@@ -13,6 +13,7 @@ public class DAO_ChiTietPhieuPhat {
     private ResultSet ResultSet = null;
     private PreparedStatement PreparedStatement = null;
 
+    //Lấy danh sách chi tiết phiếu phạt theo mã
     public ArrayList<DTO_ChiTietPhieuPhat> LayDanhSachTheoMa(String MaPhieuPhat) {
         ArrayList<DTO_ChiTietPhieuPhat> DanhSachChiTietPhieuPhat = new ArrayList<>();
         String CauTruyVan = "Select * From ChiTietPhieuPhat Where MaPhieuPhat ='" + MaPhieuPhat + "'";
@@ -39,6 +40,7 @@ public class DAO_ChiTietPhieuPhat {
         return DanhSachChiTietPhieuPhat;
     }
 
+    //Thêm chi tiết phiết phạt
     public Boolean Them(DTO_ChiTietPhieuPhat ChiTietPhieuPhat) {
         String CauTruyVan = "Insert Into ChiTietPhieuPhat(MaPhieuPhat, MaDauSach, MaSach, NoiDungPhat, LePhiBoiThuong) Values(?,?,?,?,?)";
         try {

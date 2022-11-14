@@ -4,7 +4,10 @@ import java.sql.Timestamp;
 
 public class DTO_NhatKyHoatDong {
 
+    //Hoạt động, mã nhân viên
     private String HoatDong, MaNhanVien;
+    
+    //Thời gian
     private Timestamp ThoiGian;
 
     public DTO_NhatKyHoatDong() {

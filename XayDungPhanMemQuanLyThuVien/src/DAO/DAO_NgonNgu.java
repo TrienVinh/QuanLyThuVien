@@ -13,9 +13,10 @@ public class DAO_NgonNgu {
     private PreparedStatement PreparedStatement = null;
     private ResultSet ResultSet = null;
 
+    //Lấy danh sách ngôn ngữ
     public ArrayList<DTO_NgonNgu> LayDanhSach() {
         ArrayList<DTO_NgonNgu> DanhSachNgonNgu = new ArrayList<>();
-        String TruyVan = "Select MaNgonNgu, TenNgonNgu, From NgonNgu Where TonTai = true";
+        String TruyVan = "Select MaNgonNgu, TenNgonNgu From NgonNgu Where TonTai = true";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
             ResultSet = PreparedStatement.executeQuery();
@@ -32,6 +33,7 @@ public class DAO_NgonNgu {
         return DanhSachNgonNgu;
     }
 
+    //Cập nhật thông tin ngôn ngữ
     public Boolean CapNhat(DTO_NgonNgu NgonNgu) {
         String TruyVan = "Update NgonNgu Set TenNgonNgu = ?, Where MaNgonNgu = ?";
         try {
@@ -46,6 +48,7 @@ public class DAO_NgonNgu {
         return false;
     }
 
+    //Thêm ngôn ngữ
     public Boolean Them(DTO_NgonNgu NgonNgu) {
         String TruyVan = "Insert Into NgonNgu(MaNgonNgu, TenNgonNgu, TonTai) Values(?,?,?)";
         try {
@@ -61,6 +64,7 @@ public class DAO_NgonNgu {
         return false;
     }
 
+    //Xóa ngôn ngữ
     public Boolean Xoa(DTO_NgonNgu NgonNgu) {
         String TruyVan = "Update NgonNgu Set TonTai = ? Where MaNgonNgu = ?";
         try {
@@ -75,6 +79,7 @@ public class DAO_NgonNgu {
         return false;
     }
 
+    //Lấy tên ngôn ngữ theo mã
     public DTO_NgonNgu LayTenTheoMa(String MaNgonNgu) {
         DTO_NgonNgu NgonNgu = new DTO_NgonNgu();
         String TruyVan = "Select TenNgonNgu, TonTai From NgonNgu Where MaNgonNgu ='" + MaNgonNgu + "'";
@@ -92,6 +97,7 @@ public class DAO_NgonNgu {
         return NgonNgu;
     }
 
+    //Lấy chiều dài danh sách ngôn ngữ
     public Integer LayChieuDaiDanhSach() {
         Integer ChieuDaiDanhSachNgonNgu = 0;
         String TruyVan = "Select MaNgonNgu From NgonNgu";

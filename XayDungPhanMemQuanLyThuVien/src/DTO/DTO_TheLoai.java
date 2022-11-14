@@ -2,7 +2,10 @@ package DTO;
 
 public class DTO_TheLoai {
 
+    //Tồn tại (đã bị xóa hay chưa)
     private Boolean TonTai;
+    
+    //Mã thể loại, tên thể loại
     private String MaTheLoai, TenTheLoai;
 
     public DTO_TheLoai() {

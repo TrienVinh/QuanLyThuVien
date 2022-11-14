@@ -2,7 +2,10 @@ package DTO;
 
 public class DTO_NgonNgu {
 
+    //Tồn tại (đã bị xóa hay chưa)
     private Boolean TonTai;
+    
+    //Mã ngôn ngữ, tên ngôn ngữ
     private String MaNgonNgu, TenNgonNgu;
 
     public DTO_NgonNgu() {

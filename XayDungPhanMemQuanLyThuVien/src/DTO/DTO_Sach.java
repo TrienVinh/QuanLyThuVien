@@ -2,6 +2,7 @@ package DTO;
 
 public class DTO_Sach {
 
+    //Mã đầu sách, mã phiếu mượn, mã phiếu trả, mã sách, tình trạng
     private String MaDauSach, MaPhieuMuon, MaPhieuTra, MaSach, TinhTrang;
 
     public DTO_Sach() {

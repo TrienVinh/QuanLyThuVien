@@ -2,18 +2,20 @@ package DTO;
 
 public class DTO_TaiKhoan {
 
+    //Tồn tại (đã bị xóa hay chưa)
     private Boolean TonTai;
-    private String MaNhanVien, MatKhau, PhanQuyen, TinhTrang;
+    
+    //Mã nhân viên, mật khẩu, phân quyền
+    private String MaNhanVien, MatKhau, PhanQuyen;
 
     public DTO_TaiKhoan() {
     }
 
-    public DTO_TaiKhoan(Boolean TonTai, String MaNhanVien, String MatKhau, String PhanQuyen, String TinhTrang) {
+    public DTO_TaiKhoan(Boolean TonTai, String MaNhanVien, String MatKhau, String PhanQuyen) {
         this.TonTai = TonTai;
         this.MaNhanVien = MaNhanVien;
         this.MatKhau = MatKhau;
         this.PhanQuyen = PhanQuyen;
-        this.TinhTrang = TinhTrang;
     }
 
     public Boolean getTonTai() {
@@ -46,14 +48,6 @@ public class DTO_TaiKhoan {
 
     public void setPhanQuyen(String PhanQuyen) {
         this.PhanQuyen = PhanQuyen;
-    }
-
-    public String getTinhTrang() {
-        return TinhTrang;
-    }
-
-    public void setTinhTrang(String TinhTrang) {
-        this.TinhTrang = TinhTrang;
     }
 
 }

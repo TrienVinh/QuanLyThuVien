@@ -2,6 +2,7 @@ package DTO;
 
 public class DTO_NgayThangNam {
 
+    //Năm, ngày, tháng
     private Integer Nam, Ngay, Thang;
 
     public DTO_NgayThangNam() {

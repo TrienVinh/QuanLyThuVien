@@ -4,8 +4,13 @@ import java.sql.Date;
 
 public class DTO_DocGia {
 
+    //Tồn tại (đã bị xóa hay chưa)
     private Boolean TonTai;
+    
+    //Ngày đăng ký, ngày gia hạn, ngày hết hạn
     private Date NgayDangKy, NgayGiaHan, NgayHetHan;
+    
+    //Mã độc giả, số điện thoại, tên độc giả
     private String MaDocGia, SoDienThoai, TenDocGia;
 
     public DTO_DocGia() {

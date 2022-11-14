@@ -4,8 +4,13 @@ import java.sql.Date;
 
 public class DTO_NhanVien {
 
+    //Tồn tại (đã bị xóa hay chưa)
     private Boolean TonTai;
+    
+    //Ngày sinh
     private Date NgaySinh;
+    
+    //Mã nhân viên, số điện thoại, tên nhân viên
     private String MaNhanVien, SoDienThoai, TenNhanVien;
 
     public DTO_NhanVien() {

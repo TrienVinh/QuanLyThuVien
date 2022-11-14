@@ -4,8 +4,13 @@ import java.sql.Timestamp;
 
 public class DTO_PhieuMuon {
 
+    //Tổng sách 
     private Integer TongSach;
+    
+    //Mã độc giả, mã nhân viên, mã phiếu mượn
     private String MaDocGia, MaNhanVien, MaPhieuMuon;
+    
+    //Thời gian
     private Timestamp ThoiGian;
 
     public DTO_PhieuMuon() {

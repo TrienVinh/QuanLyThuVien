@@ -2,8 +2,13 @@ package DTO;
 
 public class DTO_ChiTietPhieuNhap {
 
+    //Đơn giá
     private Double DonGia;
+    
+    //Số lượng sách
     private Integer SoLuongSach;
+    
+    //Mã đầu sách, mã phiếu nhập
     private String MaDauSach, MaPhieuNhap;
 
     public DTO_ChiTietPhieuNhap() {

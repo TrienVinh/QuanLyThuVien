@@ -13,9 +13,10 @@ public class DAO_ChiTietPhieuNhap {
     private ResultSet ResultSet = null;
     private PreparedStatement PreparedStatement = null;
 
+    //Lấy danh sách chi tiết phiếu nhập
     public ArrayList<DTO_ChiTietPhieuNhap> LayDanhSachTheoMa(String MaPhieuNhap) {
         ArrayList<DTO_ChiTietPhieuNhap> DanhSachChiTietPhieuNhap = new ArrayList<>();
-        String CauTruyVan = "Select * From ChiTietPhieuNhap Where MaPhieuNhap ='" + MaPhieuNhap + "'";
+        String CauTruyVan = "Select MaDauSach, DonGia, SoLuongSach From ChiTietPhieuNhap Where MaPhieuNhap ='" + MaPhieuNhap + "'";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(CauTruyVan);
             ResultSet = PreparedStatement.executeQuery();
@@ -37,6 +38,7 @@ public class DAO_ChiTietPhieuNhap {
         return DanhSachChiTietPhieuNhap;
     }
 
+    //Thêm chi tiết phiếu nhập
     public Boolean Them(DTO_ChiTietPhieuNhap ChiTietPhieuNhap) {
         String CauTruyVan = "Insert Into ChiTietPhieuNhap(MaPhieuNhap, MaDauSach, DonGia, SoLuongSach) Values(?,?,?,?)";
         try {

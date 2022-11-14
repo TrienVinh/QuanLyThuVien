@@ -6,28 +6,39 @@ import java.util.ArrayList;
 
 public class BUS_DocGia {
 
-    public Boolean CapNhat(DTO_DocGia DocGia) {
-        return new DAO_DocGia().Them(DocGia);
+    //Lấy danh sách độc giả
+    public static ArrayList<DTO_DocGia> LayDanhSach() {
+        return new DAO_DocGia().LayDanhSach();
     }
 
+    //Cập nhật thông tin độc giả
+    public Boolean CapNhat(DTO_DocGia DocGia) {
+        return new DAO_DocGia().CapNhat(DocGia);
+    }
+
+    //Cập nhật gia hạn độc giả
+    public Boolean CapNhatGiaHan(DTO_DocGia DocGia) {
+        return new DAO_DocGia().CapNhatGiaHan(DocGia);
+    }
+    
+    //Thêm độc giả
     public Boolean Them(DTO_DocGia DocGia) {
         return new DAO_DocGia().Them(DocGia);
     }
 
+    //Xóa độc giả
     public Boolean Xoa(DTO_DocGia DocGia) {
         return new DAO_DocGia().Xoa(DocGia);
     }
 
-    public DTO_DocGia LayTenTheoMa(String MaDocGia){
+    //Lấy tên độc giả theo mã
+    public DTO_DocGia LayTenTheoMa(String MaDocGia) {
         return new DAO_DocGia().LayTenTheoMa(MaDocGia);
     }
-    
-    public Integer LayChieuDaiDanhSach(){
+
+    //Lấy chiều dài danh sách độc giả
+    public Integer LayChieuDaiDanhSach() {
         return new DAO_DocGia().LayChieuDaiDanhSach();
-    }
-    
-    public static ArrayList<DTO_DocGia> LayDanhSach() {
-        return new DAO_DocGia().LayDanhSach();
     }
 
 }

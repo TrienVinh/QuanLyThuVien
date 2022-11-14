@@ -2,7 +2,10 @@ package DTO;
 
 public class DTO_NhaXuatBan {
 
+    //Tồn tại (đã bị xóa hay chưa)
     private Boolean TonTai;
+    
+    //Mã nhà xuất bản, tên nhà xuất bản
     private String MaNhaXuatBan, TenNhaXuatBan;
 
     public DTO_NhaXuatBan() {

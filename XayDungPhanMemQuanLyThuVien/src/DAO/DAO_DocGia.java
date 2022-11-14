@@ -13,6 +13,7 @@ public class DAO_DocGia {
     private PreparedStatement PreparedStatement = null;
     private ResultSet ResultSet = null;
 
+    //Lấy danh sách độc giả
     public ArrayList<DTO_DocGia> LayDanhSach() {
         ArrayList<DTO_DocGia> DanhSachDocGia = new ArrayList<>();
         String TruyVan = "Select MaDocGia, TenDocGia, SoDienThoai, NgayDangKy, NgayGiaHan, NgayHetHan From DocGia Where TonTai = true";
@@ -36,6 +37,7 @@ public class DAO_DocGia {
         return DanhSachDocGia;
     }
 
+    //Cập nhật thông tin độc giả
     public Boolean CapNhat(DTO_DocGia DocGia) {
         String TruyVan = "Update DocGia Set TenDocGia = ?, SoDienThoai = ? Where MaDocGia = ?";
         try {
@@ -51,6 +53,23 @@ public class DAO_DocGia {
         return false;
     }
 
+    //Cập nhật gia hạn độc giả
+    public Boolean CapNhatGiaHan(DTO_DocGia DocGia) {
+        String TruyVan = "Update DocGia Set NgayGiaHan = ?, NgayHetHan = ? Where MaDocGia = ?";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            PreparedStatement.setDate(1, DocGia.getNgayGiaHan());
+            PreparedStatement.setDate(2, DocGia.getNgayHetHan());
+            PreparedStatement.setString(3, DocGia.getMaDocGia());
+            MySQLConnection.Disconnect();
+            return PreparedStatement.executeUpdate() > 0;
+        } catch (SQLException SQLException) {
+            JOptionPane.showMessageDialog(null, "Cập nhật gia hạn độc giả không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return false;
+    }
+
+    //Thêm độc giả
     public Boolean Them(DTO_DocGia DocGia) {
         String TruyVan = "Insert Into DocGia(MaDocGia, TenDocGia, SoDienThoai, NgayDangKy, NgayGiaHan, NgayHetHan, TonTai) Values(?,?,?,?,?,?,?)";
         try {
@@ -70,6 +89,7 @@ public class DAO_DocGia {
         return false;
     }
 
+    //Xóa độc giả
     public Boolean Xoa(DTO_DocGia DocGia) {
         String TruyVan = "Update DocGia Set TonTai = ? Where MaDocGia = ?";
         try {
@@ -83,7 +103,8 @@ public class DAO_DocGia {
         }
         return false;
     }
-    
+
+    //Lấy tên độc giả theo mã
     public DTO_DocGia LayTenTheoMa(String MaDocGia) {
         DTO_DocGia DocGia = new DTO_DocGia();
         String TruyVan = "Select TenDocGia, TonTai From DocGia Where MaDocGia ='" + MaDocGia + "'";
@@ -101,6 +122,7 @@ public class DAO_DocGia {
         return DocGia;
     }
 
+    //Lấy chiều dài danh sách độc giả
     public Integer LayChieuDaiDanhSach() {
         Integer ChieuDaiDanhSachDocGia = 0;
         String TruyVan = "Select MaDocGia From DocGia";

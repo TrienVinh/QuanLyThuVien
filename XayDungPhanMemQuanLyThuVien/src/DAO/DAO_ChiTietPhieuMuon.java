@@ -13,6 +13,7 @@ public class DAO_ChiTietPhieuMuon {
     private ResultSet ResultSet = null;
     private PreparedStatement PreparedStatement = null;
 
+    //Lấy danh sách chi tiết phiếu mượn theo mã
     public ArrayList<DTO_ChiTietPhieuMuon> LayDanhSachTheoMa(String MaPhieuMuon) {
         ArrayList<DTO_ChiTietPhieuMuon> DanhSachChiTietPhieuMuon = new ArrayList<>();
         String CauTruyVan = "Select * From ChiTietPhieuMuon Where MaPhieuMuon ='" + MaPhieuMuon + "'";
@@ -30,11 +31,12 @@ public class DAO_ChiTietPhieuMuon {
             }
             MySQLConnection.Disconnect();
         } catch (SQLException SQLException) {
-            JOptionPane.showMessageDialog(null, "Lấy danh sách chi tiết phiếu mượn không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Lấy danh sách chi tiết phiếu mượn theo mã không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
         return DanhSachChiTietPhieuMuon;
     }
 
+    //Thêm chi tiết phiếu mượn
     public Boolean Them(DTO_ChiTietPhieuMuon ChiTietPhieuMuon) {
         String CauTruyVan = "Insert Into ChiTietPhieuMuon(MaPhieuMuon, MaDauSach, SoLuongSach) Values(?,?,?)";
         try {

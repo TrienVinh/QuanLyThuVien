@@ -13,6 +13,7 @@ public class DAO_DauSach {
     private ResultSet ResultSet = null;
     private PreparedStatement PreparedStatement = null;
 
+    //Lấy danh sách đầu sách
     public ArrayList<DTO_DauSach> LayDanhSach() {
         ArrayList<DTO_DauSach> DanhSachDauSach = new ArrayList<>();
         String TruyVan = "Select MaDauSach, TenDauSach, DonGia, MaNgonNgu, MaNhaXuatBan, MaTacGia, MaTheLoai, SoLuongSach, SoLuongSachKhaDung From DauSach Where TonTai = true";
@@ -39,8 +40,9 @@ public class DAO_DauSach {
         return DanhSachDauSach;
     }
 
+    //Cập nhật thông tin đầu sách
     public Boolean CapNhat(DTO_DauSach DauSach) {
-        String TruyVan = "Update DauSach Set TenDauSach = ?, DonGia = ?, MaNgonNgu = ?, MaNhaXuatBan = ?, MaTacGia = ?, MaTheLoai =?, Where MaDauSach = ?";
+        String TruyVan = "Update DauSach Set TenDauSach = ?, DonGia = ?, MaNgonNgu = ?, MaNhaXuatBan = ?, MaTacGia = ?, MaTheLoai = ?, Where MaDauSach = ?";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
             PreparedStatement.setString(1, DauSach.getTenDauSach());
@@ -58,6 +60,38 @@ public class DAO_DauSach {
         return false;
     }
 
+    //Cập nhật số lượng sách
+    public Boolean CapNhatSoLuongSach(DTO_DauSach DauSach) {
+        String TruyVan = "Update DauSach Set SoLuongSach = ?, SoLuongSachKhaDung = ? Where MaDauSach = ?";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            PreparedStatement.setInt(1, DauSach.getSoLuongSach());
+            PreparedStatement.setInt(2, DauSach.getSoLuongSachKhaDung());
+            PreparedStatement.setString(3, DauSach.getMaDauSach());
+            MySQLConnection.Disconnect();
+            return PreparedStatement.executeUpdate() > 0;
+        } catch (SQLException SQLException) {
+            JOptionPane.showMessageDialog(null, "Cập nhật số lượng sách không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return false;
+    }
+
+    //Cập nhật số lượng sách khả dụng
+    public Boolean CapNhatSoLuongSachKhaDung(DTO_DauSach DauSach) {
+        String TruyVan = "Update DauSach Set SoLuongSachKhaDung = ? Where MaDauSach = ?";
+        try {
+            PreparedStatement = new MySQLConnection().Connection.prepareStatement(TruyVan);
+            PreparedStatement.setInt(1, DauSach.getSoLuongSachKhaDung());
+            PreparedStatement.setString(2, DauSach.getMaDauSach());
+            MySQLConnection.Disconnect();
+            return PreparedStatement.executeUpdate() > 0;
+        } catch (SQLException SQLException) {
+            JOptionPane.showMessageDialog(null, "Cập nhật số lượng sách khả dụng không thành công !", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return false;
+    }
+
+    //Thêm đầu sách
     public Boolean Them(DTO_DauSach DauSach) {
         String TruyVan = "Insert Into DauSach(MaDauSach, TenDauSach, DonGia, MaNgonNgu, MaNhaXuatBan, MaTacGia, MaTheLoai, SoLuongSach, SoLuongSachKhaDung, TonTai) Values(?,?,?,?,?,?,?,?,?,?)";
         try {
@@ -80,6 +114,7 @@ public class DAO_DauSach {
         return false;
     }
 
+    //Xóa đầu sách
     public Boolean Xoa(DTO_DauSach DauSach) {
         String TruyVan = "Update DauSach Set TonTai = ? Where MaDauSach = ?";
         try {
@@ -94,6 +129,7 @@ public class DAO_DauSach {
         return false;
     }
 
+    //Lấy tên đầu sách theo mã
     public DTO_DauSach LayTenTheoMa(String MaDauSach) {
         DTO_DauSach DauSach = new DTO_DauSach();
         String TruyVan = "Select TenDauSach, TonTai From DauSach Where MaDauSach ='" + MaDauSach + "'";
@@ -111,6 +147,7 @@ public class DAO_DauSach {
         return DauSach;
     }
 
+    //Lấy chiều dài danh sách đầu sách
     public Integer LayChieuDaiDanhSach() {
         Integer ChieuDaiDanhSachDauSach = 0;
         String TruyVan = "Select MaDauSach From DauSach";

@@ -14,6 +14,7 @@ public class DAO_NhatKyHoatDong {
     private ResultSet ResultSet = null;
     private PreparedStatement PreparedStatement = null;
 
+    //Lấy danh sách nhật ký hoạt động
     public ArrayList<DTO_NhatKyHoatDong> LayDanhSach() {
         ArrayList<DTO_NhatKyHoatDong> DanhSachNhatKyHoatDong = new ArrayList<>();
         String CauTruyVan = "Select * From NhatKyHoatDong";
@@ -37,8 +38,9 @@ public class DAO_NhatKyHoatDong {
         return DanhSachNhatKyHoatDong;
     }
 
+    //Thêm nhật ký hoạt động
     public Boolean Them(DTO_NhatKyHoatDong NhatKyHoatDong) {
-        String CauTruyVan = "Insert Into NhatKyHoatDong(MaPhieuNhap, MaNhanVien, DonGia, SoLuongSach) Values(?,?,?,?)";
+        String CauTruyVan = "Insert Into NhatKyHoatDong(MaNhanVien, HoatDong, ThoiGian) Values(?,?,?)";
         try {
             PreparedStatement = new MySQLConnection().Connection.prepareStatement(CauTruyVan);
             String MaNhanVien = NhatKyHoatDong.getMaNhanVien();

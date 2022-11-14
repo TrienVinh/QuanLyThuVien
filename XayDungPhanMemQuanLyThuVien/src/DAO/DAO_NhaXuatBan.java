@@ -13,6 +13,7 @@ public class DAO_NhaXuatBan {
     private PreparedStatement PreparedStatement = null;
     private ResultSet ResultSet = null;
 
+    //Lấy danh sách nhà xuất bản
     public ArrayList<DTO_NhaXuatBan> LayDanhSach() {
         ArrayList<DTO_NhaXuatBan> DanhSachNhaXuatBan = new ArrayList<>();
         String TruyVan = "Select MaNhaXuatBan, TenNhaXuatBan, From NhaXuatBan Where TonTai = true";
@@ -32,6 +33,7 @@ public class DAO_NhaXuatBan {
         return DanhSachNhaXuatBan;
     }
 
+    //Cập nhật thông tin nhà xuất bản
     public Boolean CapNhat(DTO_NhaXuatBan NhaXuatBan) {
         String TruyVan = "Update NhaXuatBan Set TenNhaXuatBan = ?, Where MaNhaXuatBan = ?";
         try {
@@ -46,6 +48,7 @@ public class DAO_NhaXuatBan {
         return false;
     }
 
+    //Thêm nhà xuất bản
     public Boolean Them(DTO_NhaXuatBan NhaXuatBan) {
         String TruyVan = "Insert Into NhaXuatBan(MaNhaXuatBan, TenNhaXuatBan, TonTai) Values(?,?,?)";
         try {
@@ -61,6 +64,7 @@ public class DAO_NhaXuatBan {
         return false;
     }
 
+    //Xóa nhà xuất bản
     public Boolean Xoa(DTO_NhaXuatBan NhaXuatBan) {
         String TruyVan = "Update NhaXuatBan Set TonTai = ? Where MaNhaXuatBan = ?";
         try {
@@ -75,6 +79,7 @@ public class DAO_NhaXuatBan {
         return false;
     }
 
+    //Lấy tên nhà xuất bản theo mã
     public DTO_NhaXuatBan LayTenTheoMa(String MaNhaXuatBan) {
         DTO_NhaXuatBan NhaXuatBan = new DTO_NhaXuatBan();
         String TruyVan = "Select TenNhaXuatBan, TonTai From NhaXuatBan Where MaNhaXuatBan ='" + MaNhaXuatBan + "'";
@@ -92,6 +97,7 @@ public class DAO_NhaXuatBan {
         return NhaXuatBan;
     }
 
+    //Lấy chiều dài danh sách nhà xuất bản
     public Integer LayChieuDaiDanhSach() {
         Integer ChieuDaiDanhSachNhaXuatBan = 0;
         String TruyVan = "Select MaNhaXuatBan From NhaXuatBan";
